@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.geometry.coin",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "Coin",
+					"pivot": [0, 8, -11],
+					"cubes": [
+						{"origin": [-6, 8, -1], "size": [12, 22, 2], "uv": [0, 0]},
+						{"origin": [6, 10, -1], "size": [2, 18, 2], "uv": [8, 24]},
+						{"origin": [-8, 10, -1], "size": [2, 18, 2], "uv": [0, 24]},
+						{"origin": [8, 12, -1], "size": [2, 14, 2], "uv": [24, 24]},
+						{"origin": [-10, 12, -1], "size": [2, 14, 2], "uv": [16, 24]}
+					]
+				}
+			]
+		}
+	]
+}

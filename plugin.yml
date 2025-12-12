@@ -1,0 +1,13 @@
+---
+name: MurderMystery
+author: GlazeNet
+description: A magnifical game of MurderMystery.
+version: 1.0.0
+main: GlazeNet\MurderMystery\Murder
+api: 5.0.0
+permissions:
+      glaze.murder.command:
+              default: op
+      glaze.murder.start:
+              default: op
+...
