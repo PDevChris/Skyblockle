@@ -33,7 +33,7 @@ class Murder extends PluginBase {
 	public static $score;
 
 	public static $data = [
-		'prefix' => '§b[§l§cMurder§r§b] §r',
+		'prefix' => '§b[§l§cSeasonal Games§r§b] §r',
 		'id' => '',
 		'vote' => [],
 		'skins' => [],
@@ -178,5 +178,6 @@ class Murder extends PluginBase {
 		$this->getScheduler()->scheduleRepeatingTask(new NPCRotation($this), 5);
 	}
 }
+
 
 
