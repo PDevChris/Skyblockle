@@ -67,7 +67,7 @@ class Murder extends PluginBase {
 		$this->loadCommands();
 		$this->loadEvents();
 		$this->loadTasks();
-		$this->getLogger()->info('§aMurderMystery loaded succesfully');
+		$this->getLogger()->info('§aSeasonal Games loaded succesfully');
 	}
 
 	public static function getInstance() : self {
@@ -178,4 +178,5 @@ class Murder extends PluginBase {
 		$this->getScheduler()->scheduleRepeatingTask(new NPCRotation($this), 5);
 	}
 }
+
 
