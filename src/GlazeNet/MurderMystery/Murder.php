@@ -10,6 +10,7 @@ use GlazeNet\MurderMystery\Entity\MurderLeadboard;
 use GlazeNet\MurderMystery\Entity\MurderNPCJoin;
 use GlazeNet\MurderMystery\Entity\MurderPoliceHat;
 use GlazeNet\MurderMystery\Entity\MurderTomb;
+use GlazeNet\MurderMystery\Season\SeasonManager;
 use GlazeNet\MurderMystery\Tasks\GameScheduler;
 use GlazeNet\MurderMystery\Tasks\NPCRotation;
 
@@ -52,7 +53,8 @@ class Murder extends PluginBase {
 		self::$score = new ScoreAPI($this);
 	}
 
-	public function onEnable() : void {
+	public function onEnable() : void {\
+		SeasonManager::init(); // <<< ADD THIS FIRST
 		$this->loadDatabase();
 		$this->saveResources();
 		foreach (Arena::getArenas() as $arena) {
@@ -65,6 +67,7 @@ class Murder extends PluginBase {
 		}
 		$this->loadEntitys();
 		$this->loadCommands();
+		
 		$this->loadEvents();
 		$this->loadTasks();
 		$this->getLogger()->info('§aSeasonal Games loaded succesfully');
@@ -178,6 +181,7 @@ class Murder extends PluginBase {
 		$this->getScheduler()->scheduleRepeatingTask(new NPCRotation($this), 5);
 	}
 }
+
 
 
 
