@@ -175,6 +175,49 @@ class MurderCommand extends Command {
 							Arena::saveArenaConfigs($args[1]);
 							$sender->sendMessage(Murder::getPrefix() . "§aSuccessfully set lobby time to {$args[4]} seconds!");
 							break;
+
+						case 'season':
+						    if (!$sender->getServer()->isOp($sender->getName())) {
+						        $sender->sendMessage(Murder::getPrefix() . "§cNo permission.");
+						        return true;
+						    }
+						
+						    if (!isset($args[1], $args[2])) {
+						        $sender->sendMessage("§eUse: /vh season set <summer|fall|winter|spring>");
+						        return true;
+						    }
+						
+						    if ($args[1] !== "set") {
+						        $sender->sendMessage("§cInvalid subcommand. Use §e/vh season set <season>");
+						        return true;
+						    }
+						
+						    $input = strtolower($args[2]);
+						
+						    // Alias + typo correction
+						    $aliases = [
+						        "sprting" => "spring",
+						        "sprng" => "spring",
+						        "autumn" => "fall",
+						        "fal" => "fall",
+						        "sumemr" => "summer",
+						        "wintr" => "winter"
+						    ];
+						
+						    $season = $aliases[$input] ?? $input;
+						
+						    $validSeasons = ["summer", "fall", "winter", "spring"];
+						
+						    if (!in_array($season, $validSeasons, true)) {
+						        $sender->sendMessage("§cInvalid season: §e" . $args[2]);
+						        $sender->sendMessage("§7Valid seasons: §a" . implode("§7, §a", $validSeasons));
+						        return true;
+						    }
+						
+						    \GlazeNet\MurderMystery\Season\SeasonManager::setSeason($season);
+						    $sender->sendMessage("§aSeason successfully set to §e" . ucfirst($season));
+						break;
+
 						case "gametime":
 						if(!isset($args[4])){
 							$sender->sendMessage(Murder::getPrefix() . "§cYou must specify time in seconds!");
