@@ -43,9 +43,10 @@ class MurderNPCJoin extends Human {
 		$this->setNoClientPredictions(true);
 		$this->getEffects()->add(new EffectInstance(VanillaEffects::JUMP_BOOST(), 1, 255, true, false, new Color(rand(0, 255), rand(0, 255), rand(0, 255))));
 		$this->setNameTag(
-			"§l§a SEASONAL GAME §l§b" . "\n" .
-			"§l§e Viltrumite Hunt" . "\n" .
-			"§b" . $this->getAllPlayers() . " Playing!");
+			    "§l§aSEASONAL GAME\n" .
+			    "§l" . SeasonManager::getSeasonTitle() . "\n" .
+			    "§b" . $this->getAllPlayers() . " Boarding!"
+			);
 		return parent::onUpdate($currentTick);
 	}
 
@@ -69,4 +70,5 @@ class MurderNPCJoin extends Human {
 		return 0.0;
 	}
 }
+
 
